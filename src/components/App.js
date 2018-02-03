@@ -12,7 +12,7 @@ class App extends React.Component {
   // initialize states. No need to use constructor and super anymore
   state = {
     weatherCondition: undefined,
-    tempC: undefined,
+    temperature: undefined,
     city: undefined,
     country: undefined,
     humidity: undefined,
@@ -43,17 +43,19 @@ class App extends React.Component {
     console.log(e);
     const city=e.target.elements.city.value;
     const country=e.target.elements.country.value;
-    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}`);
+    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=metric`);
     const data = await api_call.json(); // JSON.parse is replaced
-    console.log(data);
-    this.setState({
-      weatherCondition: data['weather'][0]['description'],
-      tempC: data['main']['temp'],
-      city: data['name'],
-      country: data['sys']['country'],
-      humidity: data['main']['humidity'],
-      error: ""
-    });
+    if (city && country) {
+      console.log(data);
+      this.setState({
+        weatherCondition: data['weather'][0]['description'],
+        temperature: data['main']['temp'],
+        city: data['name'],
+        country: data['sys']['country'],
+        humidity: data['main']['humidity'],
+        error: ""
+      });
+    }
   }
 
   // getData(){
@@ -128,7 +130,7 @@ class App extends React.Component {
             city={this.state.city}
             country={this.state.country}
             humidity={this.state.humidity}
-            description={this.state.description}
+            weatherCondition={this.state.weatherCondition}
             error={this.state.error}
           />
         </div>

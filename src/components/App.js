@@ -5,6 +5,8 @@ import Title from './Title';
 import Form from './Form';
 import Weather from './Weather';
 
+const API_KEY = "ef99d2b74d64e716"
+
 class App extends React.Component {
 
   constructor(props){
@@ -22,6 +24,13 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
 
+  }
+
+  // Arrow function is allow in React 16+ whereas React 15 and older, you'll have to use constructor, super(), this.setState() and bind.this on your custom functions
+  getWeather = async () => {
+    const api_call = await fetch(`http://api.wunderground.com/api/${API_KEY}/conditions/q/toronto,ontario.json`);
+    const data = await api_call.json(); // JSON.parse is replaced
+    console.log(data);
   }
 
   getData(){
@@ -92,6 +101,8 @@ class App extends React.Component {
       <div className="App">
         <div>
           <Title />
+          <Form />
+          <Weather />
         </div>
         <div className="container my-5">
           {/*)<div className="row">

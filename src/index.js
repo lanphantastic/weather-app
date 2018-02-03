@@ -5,7 +5,9 @@ import { render } from 'react-dom';
 import './index.css';
 
 // COMPONENTS
-import App from './App';
+import App from './components/App';
 import Title from './components/Title';
+import Form from './components/Form';
+import Weather from './components/Weather';
 
 render(<App />, document.getElementById('root'));

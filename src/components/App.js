@@ -1,5 +1,9 @@
 import React from 'react';
-import './App.css';
+
+// COMPONENTS
+import Title from './Title';
+import Form from './Form';
+import Weather from './Weather';
 
 class App extends React.Component {
 
@@ -86,6 +90,9 @@ class App extends React.Component {
     console.log(this.state.url);
     return (
       <div className="App">
+        <div>
+          <Title />
+        </div>
         <div className="container my-5">
           {/*)<div className="row">
             <div className="col-md-6 push-md-3 col-xl-4 push-xl-4 card">

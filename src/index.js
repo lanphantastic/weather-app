@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 
 // STYLING
-import './index.css';
+import './css/style.css';
 
 // COMPONENTS
 import App from './components/App';

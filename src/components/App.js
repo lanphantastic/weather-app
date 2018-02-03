@@ -55,6 +55,16 @@ class App extends React.Component {
         humidity: data['main']['humidity'],
         error: ""
       });
+    } else {
+      this.setState({
+        weatherCondition: undefined,
+        temperature: undefined,
+        city: undefined,
+        country: undefined,
+        humidity: undefined,
+        description: undefined,
+        error: "Please enter a city and a county"
+      });
     }
   }
 

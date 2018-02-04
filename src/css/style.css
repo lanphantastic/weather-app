@@ -21,6 +21,10 @@ body {
   margin: 0 auto;
 }
 
+.container{
+  max-width: 1152px;
+}
+
 .title-container {
   height: 90vh;
   background: url("../img/materialize-bg.jpg") center center no-repeat;

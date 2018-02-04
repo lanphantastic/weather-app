@@ -57,6 +57,7 @@ body {
   height: 90vh;
   padding-top: 100px;
   padding-left: 50px;
+  overflow-y: scroll;
 }
 
 input[type="text"] {

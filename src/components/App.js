@@ -24,6 +24,7 @@ class App extends React.Component {
   getWeather = async (e) => {
     e.preventDefault();
     console.log(e);
+    console.log(e.target.elements);
     const city=e.target.elements.city.value;
     const country=e.target.elements.country.value;
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=metric`);
@@ -57,10 +58,10 @@ class App extends React.Component {
         <div className="main">
           <div className="container">
             <div className="row">
-              <div className="col-sm title-container">
+              <div className="col-sm-6 title-container">
                 <Title />
               </div>
-              <div className="col-sm form-container">
+              <div className="col-sm-6 form-container">
                 <Form getWeather={this.getWeather}/>
                 <Weather
                   temperature={this.state.temperature}
